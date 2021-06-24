@@ -1,0 +1,22 @@
+.wrapper {
+  background: #fff;
+  width: 100%;
+  padding: 0.5em;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1078px;
+  display: flex;
+  justify-content: space-between;
+
+  &__left {
+    padding-left: 1em;
+    h1 {
+      font-weight: 800;
+    }
+  }
+  img {
+    filter: blur(0.5px);
+  }
+}
