@@ -1,9 +1,17 @@
+.wrapper {
+  background: #f6f8fa;
+  position: sticky;
+  top: 0;
+  z-index: 3000;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 6px 24px;
+}
 .container {
   max-width: 1078px;
   margin: 0 auto;
   display: flex;
-  padding: 0.75em 0;
+  padding: 1em 0;
   align-items: center;
+
   justify-content: space-between;
 
   .navbar {

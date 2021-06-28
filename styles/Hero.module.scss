@@ -1,7 +1,7 @@
 .wrapper {
   background: #fff;
   width: 100%;
-  padding: 0.5em;
+  // padding: 0.5em;
 }
 
 .container {
@@ -11,12 +11,45 @@
   justify-content: space-between;
 
   &__left {
+    flex: 0.5;
+    margin-top: 2em;
     padding-left: 1em;
     h1 {
       font-weight: 800;
     }
+    p {
+      margin-top: 1em;
+      font-size: 1.2rem;
+    }
+    button {
+      margin-top: 1em;
+      font-size: 1.1rem;
+      color: #fff;
+      box-shadow: 6px 6px 0 1px lightgray;
+      background-color: #06060b;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 0.5em;
+      transition: all ease-in-out 0.15s;
+
+      &:hover {
+        cursor: pointer;
+        scale: 0.8;
+        box-shadow: 0px 0px 0 0px black;
+      }
+    }
+
+    span {
+      font-weight: 600;
+    }
   }
-  img {
-    filter: blur(0.5px);
+  &__right {
+    flex: 0.5;
+    background: #000;
+    img {
+      width: 100%;
+      opacity: 0.9;
+      // filter: blur(3px); // background-color: rgba(0, 0, 0, 0.116);
+    }
   }
 }

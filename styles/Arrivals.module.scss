@@ -1,0 +1,56 @@
+.container {
+  max-width: 1078px;
+  margin: 0 auto;
+  margin-top: 2.5em;
+
+  h1 {
+    margin-left: 0.5em;
+    margin-bottom: 0.75em;
+    font-size: 1.35rem;
+    text-transform: uppercase;
+    color: #3e3e3e;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  .sneakerlist {
+    &::-webkit-scrollbar {
+      display: none;
+      scrollbar-width: none;
+    }
+    display: flex;
+    // overflow-x: auto;
+    &__sneak {
+      margin-right: 3em;
+
+      h2 {
+        font-size: 0.95rem;
+        margin-top: 0.25em;
+        text-transform: uppercase;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      &__brand {
+        font-weight: 600;
+        color: #5a5a5a;
+        margin-top: 0.25em;
+        text-transform: capitalize;
+      }
+      &__price {
+        font-weight: 700;
+        color: #3e3e3e;
+        // text-align: right;
+      }
+
+      &__img {
+        padding: 1em;
+        background-color: #fff;
+        img {
+          width: 200px;
+          height: 150px;
+        }
+      }
+    }
+  }
+}
