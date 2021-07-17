@@ -10,8 +10,9 @@ const Header = () => {
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <Link href='/'>
-          <a>
-            <Image src='/tks-logo4.svg' alt='' height={60} width={120} />
+          <a className={styles.logo}>
+            {/* <Image src='/tks-logo4.svg' alt='' height={60} width={120} /> */}
+            KICKS
           </a>
         </Link>
 

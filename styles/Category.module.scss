@@ -2,18 +2,20 @@
   max-width: 1078px;
   margin: 0 auto;
   margin-top: 4em;
-  justify-content: space-evenly;
+  justify-content: space-between;
   display: flex;
-  div {
+  .men,
+  .women {
     position: relative;
-    width: 30%;
+    width: 49.5%;
     height: 400px;
     transition: all ease-in-out 0.15s;
+    // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    // transition-duration: 0.15s;
 
     button {
       cursor: pointer;
       z-index: 2;
-
       position: absolute;
       bottom: 2%;
       left: 50%;
@@ -26,10 +28,36 @@
       padding: 0.5em;
       transition: all ease-in-out 0.15s;
     }
+    &:hover {
+      cursor: pointer;
+      background-color: #000;
+      img {
+        opacity: 0.5;
+      }
+    }
   }
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: all ease-in-out 0.25s;
+  }
+}
+.brands {
+  max-width: 1078px;
+  margin: 0 auto;
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 0.25em 0;
+  // border-radius: 5px;
+  margin-top: 0.5em;
+  justify-self: flex-end;
+  text-align: center;
+  color: #fff;
+  // color: #000;
+  background-color: #1f1f23;
+
+  &:hover {
+    cursor: pointer;
   }
 }

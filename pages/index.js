@@ -1,19 +1,21 @@
 import Arrivals from '@components/Arrivals'
 import Category from '@components/Category'
+import Products from '@components/Products'
 import Hero from '@components/Hero'
 import styles from '../styles/Home.module.scss'
-export default function Home({ newArrivals }) {
+export default function Home({ newArrivals, sneakers }) {
   return (
     <>
       <Hero></Hero>
       <Arrivals newArrivals={newArrivals}></Arrivals>
       <Category></Category>
+      <Products sneakers={sneakers}></Products>
     </>
   )
 }
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const apiRes = await fetch(
-    'https://the-sneaker-database.p.rapidapi.com/sneakers?limit=20',
+    'https://the-sneaker-database.p.rapidapi.com/sneakers?limit=100',
     {
       method: 'GET',
       headers: {
@@ -26,10 +28,14 @@ export const getServerSideProps = async () => {
   const newArrivals = apiResult?.results
     .filter((sneak) => sneak.image.small && sneak.retailPrice)
     .slice(0, 4)
+  const sneakers = apiResult?.results.filter(
+    (sneak) => sneak.image.small && sneak.retailPrice
+  )
 
   return {
     props: {
       newArrivals,
+      sneakers,
     },
   }
 }

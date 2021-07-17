@@ -1,5 +1,7 @@
 import Image from 'next/image'
 import styles from '@styles/Hero.module.scss'
+import Link from 'next/link'
+
 const Hero = () => {
   return (
     <div className={styles.wrapper}>
@@ -10,8 +12,9 @@ const Hero = () => {
             Get 20% off on select footwear with promo code <span>FALLSALE</span>
             .
           </p>
-
-          <button>Shop Now</button>
+          <Link href='/products'>
+            <button>Shop Now</button>
+          </Link>
         </div>
         <div className={styles.container__right}>
           <img src='/hero-img.jpg'></img>

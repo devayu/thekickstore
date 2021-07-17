@@ -16,10 +16,12 @@ const Arrivals = ({ newArrivals }) => {
               <p className={styles.sneakerlist__sneak__brand}>
                 {sneaker.brand}
               </p>
-              <h2>{sneaker.silhouette}</h2>
-              <p className={styles.sneakerlist__sneak__price}>
-                ${sneaker.retailPrice}
-              </p>
+              <h2>
+                {sneaker.silhouette}
+                <span className={styles.sneakerlist__sneak__price}>
+                  ${sneaker.retailPrice}
+                </span>
+              </h2>
             </div>
           )
         })}
