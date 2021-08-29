@@ -22,7 +22,6 @@ export default function Home({ newArrivals, sneakers }) {
 }
 export const getServerSideProps = async () => {
   const API_KEY = process.env.STRIPE_KEY;
-  // const stripe = require('stripe')(API_KEY);
   const fetchShoesApi = await fetch(
     `https://api.stripe.com/v1/products?limit=100`,
     {
@@ -45,20 +44,13 @@ export const getServerSideProps = async () => {
     }
   );
   const apiResult = await apiRes.json();
-
-  const newArrivals = apiResult.record
-    ?.filter((sneak) => sneak.image.original && sneak.retailPrice)
-    .slice(0, 8);
-  const sneakers = apiResult.record?.filter(
-    (sneak) => sneak.image.small && sneak.retailPrice
-  );
+  const tempArray = [...fetchShoesData.data];
+  const newArrivals = tempArray.reverse().slice(0, 8);
 
   return {
     props: {
       newArrivals,
-      sneakers: fetchShoesData.data,
+      sneakers: fetchShoesData?.data,
     },
-
-    // revalidate: 20,
   };
 };

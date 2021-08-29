@@ -9,16 +9,24 @@ const Arrivals = ({ newArrivals }) => {
         <div className={styles.sneakerlist}>
           {newArrivals?.map((sneaker) => {
             return (
-              <Link href={`/products/${sneaker.id}`} key={sneaker.id}>
+              <Link
+                href={{
+                  pathname: '/product',
+                  query: {
+                    id: sneaker.id,
+                  },
+                }}
+                key={sneaker.id}
+              >
                 <div className={styles.sneakerlist__sneak}>
                   <div className={styles.sneakerlist__sneak__img}>
-                    <img src={sneaker.image?.thumbnail}></img>
+                    <img src={sneaker.images[0]}></img>
                   </div>
 
                   <h2>
                     {sneaker.name}
                     <p className={styles.sneakerlist__sneak__price}>
-                      ${sneaker.retailPrice}.00
+                      ${sneaker.metadata.price}.00
                     </p>
                   </h2>
                 </div>

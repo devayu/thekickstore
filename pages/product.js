@@ -25,10 +25,6 @@ export const getServerSideProps = async (context) => {
 };
 
 const ProductPage = ({ sneaker }) => {
-  const [currColor, setCurrColor] = useState('');
-  const [isColor, setIsColor] = useState(false);
-  const colorWays = sneaker.colorway?.split('/');
-
   const addProduct = (productInfo) => {
     const cart = localStorage.getItem('cartList');
     const cartList = JSON.parse(cart);
@@ -58,18 +54,14 @@ const ProductPage = ({ sneaker }) => {
         <button
           className={styles.addToCartBtn}
           onClick={() => {
-            if (!currColor) setIsColor(true);
-            if (currColor && isColor) setIsColor(false);
-            if (currColor)
-              addProduct({
-                productImg: sneaker?.image.thumbnail,
-                productName: sneaker?.name,
-                productBrand: sneaker?.brand,
-                productPrice: sneaker?.retailPrice,
-                productColor: currColor,
-                productId: sneaker?.sku,
-                productQuantity: 1,
-              });
+            addProduct({
+              productId: sneaker?.id,
+              productQuantity: 1,
+              productImg: sneaker?.images[0],
+              productPrice: sneaker?.metadata.price,
+              productName: sneaker?.name,
+              priceID: sneaker?.metadata.priceID,
+            });
           }}
         >
           Add to Cart
@@ -82,27 +74,6 @@ const ProductPage = ({ sneaker }) => {
           <h4 className={styles.sneaker__retPrice}>
             <span>${sneaker.metadata.price}.00</span>
           </h4>
-          {/* {sneaker?.colorway && (
-            <div className={styles.sneaker__colorWays}>
-              <h4>Colors</h4>
-              <div>
-                {colorWays.map((color, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => {
-                      setCurrColor(color);
-                    }}
-                    className={`${
-                      currColor === color ? styles.defaultColor : ''
-                    }`}
-                  >
-                    {color}
-                  </button>
-                ))}
-                {isColor && <span>Please Select a Color</span>}
-              </div>
-            </div>
-          )} */}
           <p className={styles.sneaker__story}>{sneaker?.description}</p>
         </div>
       </div>
