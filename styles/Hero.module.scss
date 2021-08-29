@@ -1,32 +1,44 @@
 .wrapper {
   background: #fff;
   width: 100%;
-  // padding: 0.5em;
 }
 
 .container {
   margin: 0 auto;
-  max-width: 1078px;
+  max-width: 90%;
   display: flex;
   justify-content: space-between;
 
   &__left {
+    z-index: 1;
     flex: 0.5;
-    margin-top: 2em;
+    margin-top: 3em;
+    color: #fafafa;
 
     h1 {
       font-weight: 800;
+      letter-spacing: 4px;
+      font-size: 2.5rem;
+      line-height: 0.7;
+      font-family: 'Teko', sans-serif;
+    }
+    h2 {
+      letter-spacing: 1px;
+      font-weight: 500;
+      margin-bottom: 1em;
+      color: #858585;
+      font-size: 1.5rem;
     }
     p {
-      margin-top: 1em;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
     }
+
     button {
       margin-top: 1em;
       font-size: 1.1rem;
-      color: #fff;
-      box-shadow: 6px 6px 0 1px lightgray;
-      background-color: #06060b;
+      color: #06060b;
+      box-shadow: 6px 6px 0 1px #858585;
+      background-color: #fafafa;
       font-weight: 600;
       text-transform: uppercase;
       padding: 0.5em;
@@ -34,8 +46,7 @@
 
       &:hover {
         cursor: pointer;
-        scale: 0.8;
-        box-shadow: 0px 0px 0 0px black;
+        transform: scale(0.95);
       }
     }
 
@@ -43,13 +54,17 @@
       font-weight: 600;
     }
   }
+
   &__right {
     flex: 0.5;
-    background: #000;
+    height: 500px;
+    width: 500px;
+
     img {
-      width: 100%;
-      opacity: 0.9;
-      // filter: blur(3px); // background-color: rgba(0, 0, 0, 0.116);
+      object-fit: cover;
+      z-index: 0;
+
+      // filter: grayscale(1);
     }
   }
 }

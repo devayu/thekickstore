@@ -1,6 +1,6 @@
-import '../styles/globals.scss'
-import Layout from '@components/Layout'
-import { GlobalProvider } from '@context/GlobalState'
+import '@styles/globals.scss';
+import Layout from '@components/Layout';
+import { GlobalProvider } from '@context/GlobalState';
 function MyApp({ Component, pageProps }) {
   return (
     <GlobalProvider>
@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
         <Component {...pageProps} />
       </Layout>
     </GlobalProvider>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;

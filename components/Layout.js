@@ -1,16 +1,19 @@
-import Header from '@components/Header'
-import styles from '../styles/Home.module.scss'
-import Head from 'next/head'
+import Header from '@components/Header';
+import Footer from '@components/Footer';
+import styles from '../styles/Home.module.scss';
+import Head from 'next/head';
+
 const Layout = ({ children }) => {
   return (
-    <div>
+    <div className={styles.wrapper}>
       <Head>
         <title>The Kick Store</title>
       </Head>
       <Header></Header>
       {children}
+      <Footer></Footer>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

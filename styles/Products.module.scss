@@ -1,5 +1,5 @@
 .container {
-  max-width: 1078px;
+  max-width: 90vw;
   margin: 0 auto;
   margin-top: 4em;
   text-transform: uppercase;
@@ -20,26 +20,14 @@
   h3 {
     text-align: center;
     margin-bottom: 0.75em;
+    letter-spacing: 5px;
   }
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 1em;
-
-  div {
-    padding: 1.5em;
-    background-color: #fff;
-    &:hover {
-      cursor: pointer;
-    }
-  }
-  img {
-    width: 225px;
-    height: 175px;
-  }
-  //   grid-template-rows: 1fr 1fr 1fr;
 }
 .separator {
   // background: rgba(0, 0, 0, 0.171);
@@ -47,33 +35,73 @@
   margin-top: 2.25em;
   width: 2px;
 }
-.products__sneak__price {
-  font-weight: 600;
-  font-size: 1.15rem;
+.products__sneak {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: space-between;
-  span {
+  padding: 1.5em;
+  background-color: #fff;
+  &__img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 70%;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+  &__price {
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__name {
     font-size: 1rem;
     color: #3e3e3e;
-
-    text-transform: capitalize;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    div {
+      margin-top: 1em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      h2 {
+        font-size: 1.1rem;
+      }
+    }
+    // font-weight: 800;
+    p {
+      margin-top: 0.25em;
+      font-size: 1rem;
+      color: #858585;
+      text-transform: capitalize;
+      font-weight: 600;
+    }
+  }
+  &__addBtn {
+    background-color: transparent;
+    text-decoration: underline;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #3e3e3e;
   }
 }
-.products__sneak__name {
-  font-size: 1.5rem;
-  color: #3e3e3e;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 1em;
-}
+
 .shopMore {
   margin-top: 1em;
   background-color: #3e3e3e;
+  background-color: #1f1f23;
   color: #fff;
-  padding: 0.5em;
-  font-size: 1.5rem;
-  font-weight: 600;
+  padding: 0.25em 0;
+  font-size: 1.25rem;
+  font-weight: 500;
   text-align: center;
   &:hover {
     cursor: pointer;

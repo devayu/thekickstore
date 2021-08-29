@@ -1,27 +1,29 @@
-import Image from 'next/image'
-import styles from '@styles/Hero.module.scss'
-import Link from 'next/link'
-
+import Image from 'next/image';
+import styles from '@styles/Hero.module.scss';
+import Link from 'next/link';
+import heroImg from '../public/jordan_banner.jpg';
 const Hero = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.container__left}>
-          <h1>FALL SALE</h1>
+          <h1>NEW SEASON, NO LIMITS.</h1>
+          <h2>Give your feet the superpower they need.</h2>
+          {/* <h2>BACK TO SCHOOL</h2>
           <p>
-            Get 20% off on select footwear with promo code <span>FALLSALE</span>
-            .
-          </p>
+            Get 20% off on select footwear with promo code{' '}
+            <span>BACKTOSCHOOL</span>.
+          </p> */}
           <Link href='/products'>
             <button>Shop Now</button>
           </Link>
         </div>
         <div className={styles.container__right}>
-          <img src='/hero-img.jpg'></img>
+          <Image src={heroImg} alt='' layout='fill' priority />
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

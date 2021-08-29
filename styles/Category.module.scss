@@ -1,5 +1,5 @@
 .container {
-  max-width: 1078px;
+  width: 90vw;
   margin: 0 auto;
   margin-top: 4em;
   justify-content: space-between;
@@ -10,6 +10,7 @@
     width: 49.5%;
     height: 400px;
     transition: all ease-in-out 0.15s;
+    overflow: hidden;
     // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     // transition-duration: 0.15s;
 
@@ -31,8 +32,10 @@
     &:hover {
       cursor: pointer;
       background-color: #000;
+      transform: scale(0.95);
       img {
         opacity: 0.5;
+        transform: scale(1.2);
       }
     }
   }
@@ -44,17 +47,18 @@
   }
 }
 .brands {
-  max-width: 1078px;
+  width: 90vw;
   margin: 0 auto;
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 500;
+  text-transform: uppercase;
   padding: 0.25em 0;
-  // border-radius: 5px;
+  letter-spacing: 1px;
   margin-top: 0.5em;
   justify-self: flex-end;
   text-align: center;
-  color: #fff;
-  // color: #000;
+  color: #ffffffda;
+
   background-color: #1f1f23;
 
   &:hover {

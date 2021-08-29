@@ -1,0 +1,63 @@
+.container {
+  width: 90vw;
+  margin: 0 auto;
+  margin-top: 5em;
+  padding: 3em 1em;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  div {
+    letter-spacing: 0.75px;
+    flex: 0.33;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h4 {
+      font-weight: 600;
+      color: #060606;
+    }
+    p {
+      font-size: 0.9rem;
+      color: #858585;
+    }
+
+    &:nth-child(2) {
+      flex: 0.6;
+    }
+  }
+}
+
+.newsletter {
+  width: 90vw;
+  margin: 2em auto;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  p {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+  }
+  &__email {
+    flex: 0.7;
+    display: flex;
+
+    input {
+      width: 100%;
+      padding: 1em;
+      border: none;
+      outline: none;
+      font-size: 0.9rem;
+    }
+    button {
+      cursor: pointer;
+      padding: 0.75em;
+      background-color: #060606;
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 0.75px;
+      text-transform: uppercase;
+      font-size: 1rem;
+    }
+  }
+}

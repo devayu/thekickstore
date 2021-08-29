@@ -8,13 +8,15 @@
 
 .logo {
   font-family: 'Major Mono Display', monospace;
+  font-family: 'Teko', sans-serif;
   font-size: 2.25rem;
 }
+
 .container {
-  max-width: 1078px;
+  max-width: 90vw;
   margin: 0 auto;
   display: flex;
-  padding: 1em 0;
+  padding: 0.25em 0;
   align-items: center;
 
   justify-content: space-between;
@@ -25,12 +27,23 @@
   }
 
   ul {
-    font-weight: 700;
+    font-weight: 600;
+    letter-spacing: 1px;
+    // font-size: 1.15rem;
+    text-transform: uppercase;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     li {
       list-style: none;
+      padding: 0.5em 0;
+      border-bottom: 2px solid transparent;
+      transition: all ease-in-out 0.15s;
+
+      &:hover {
+        border-bottom: 2px solid #000;
+      }
     }
   }
 
@@ -38,17 +51,40 @@
     display: flex;
     justify-content: space-between;
   }
+
   .btn {
+    position: relative;
+    cursor: pointer;
     svg {
       margin-left: 0.35em;
     }
+
     background: #ffffff;
     padding: 0.5em;
-    font-weight: 700;
+    font-size: 0.9em;
+    font-weight: 500;
+    // line-height: 1.1;
     display: flex;
     align-items: center;
+
     &:nth-child(1) {
       margin-right: 1em;
     }
+  }
+}
+.label {
+  background-color: #000;
+  color: #ffffff;
+  width: 1.1em;
+  height: 1.1em;
+  border-radius: 100vh;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -10%;
+  right: -10%;
+  p {
+    font-weight: 400;
   }
 }

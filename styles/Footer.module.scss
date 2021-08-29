@@ -1,0 +1,43 @@
+.wrapper {
+  background-color: #060606;
+  color: #858585;
+
+  .container {
+    padding: 1em 0;
+    margin: 0 auto;
+    max-width: 90vw;
+    display: flex;
+    justify-content: space-between;
+    color: #f6f8fa;
+
+    div {
+      h4 {
+        text-transform: uppercase;
+        letter-spacing: 0.75px;
+        margin-bottom: 1em;
+        font-size: 0.95;
+      }
+    }
+
+    li {
+      list-style: none;
+      margin-bottom: 0.25em;
+      color: #858585;
+      font-size: 0.9rem;
+      transition: all ease-in-out 0.15s;
+
+      &:hover {
+        cursor: pointer;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.copyright {
+  max-width: 90vw;
+  margin: 0 auto;
+  padding-bottom: 1em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}

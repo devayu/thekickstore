@@ -1,0 +1,80 @@
+.wrapper {
+  width: 90vw;
+  margin: 0 auto;
+
+  padding: 2em;
+  padding-top: 2em;
+  background-color: #fff;
+  height: 100vh;
+  p {
+    font-size: 1.1rem;
+  }
+}
+
+.form {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  input {
+    background-color: #fafafa;
+    padding: 1em;
+    margin-bottom: 0.5em;
+    font-size: 1rem;
+  }
+}
+.container {
+  display: flex;
+}
+.btnGrp {
+  margin-top: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & {
+    @media screen and (max-width: 1200px) {
+      flex-direction: column;
+    }
+  }
+}
+.loginBtn {
+  padding: 0.75em;
+  background-color: #06060b;
+  color: #fafafa;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  flex: 0.4;
+  width: 100%;
+}
+.loginGoogleBtn {
+  display: flex;
+  flex: 0.4;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0.75em;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fafafa;
+  // background-color: #4285f4;
+
+  background-color: #06060b;
+
+  span {
+    margin-left: 0.5em;
+  }
+
+  div {
+    padding: 0.75em;
+    background-color: #ffffff;
+  }
+}
+.link {
+  margin-left: 0.25em;
+  border-bottom: 2px solid #858585;
+  &:hover {
+    color: #858585;
+  }
+}

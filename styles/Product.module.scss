@@ -1,0 +1,87 @@
+.wrapper {
+  display: flex;
+  max-width: 90vw;
+  margin: 2em auto;
+  height: 100%;
+
+  &__left {
+    flex: 0.49;
+  }
+  &__right {
+    margin-left: 2em;
+
+    h4 {
+      font-size: 1.15rem;
+      font-weight: 500;
+    }
+    p {
+      margin-top: 1em;
+      font-size: 1.1rem;
+    }
+  }
+}
+.defaultColor {
+  background-color: #060606;
+  color: #fff;
+}
+
+.sneaker {
+  &__img {
+    margin: 0 auto;
+    width: 100%;
+    // height: 50%;
+    border-radius: 2px;
+    background-color: #fff;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+  &__name {
+    font-size: 2.25rem;
+  }
+  &__brand {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #858585;
+  }
+  &__retPrice {
+    margin-top: 1em;
+    span {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #3e3e3e;
+    }
+  }
+  &__colorWays {
+    div {
+      span {
+        font-size: 0.9rem;
+        color: red;
+      }
+    }
+    font-size: 1.25rem;
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    color: #3e3e3e;
+
+    button {
+      padding: 0.25em;
+      border: transparent;
+      margin: 0 0.5em;
+      margin-left: 0;
+      cursor: pointer;
+    }
+  }
+}
+.addToCartBtn {
+  margin-top: 2em;
+  padding: 0.5em;
+  font-size: 1.25rem;
+  color: #fff;
+  background-color: #060606;
+  width: 20em;
+  cursor: pointer;
+}

@@ -1,5 +1,5 @@
 .container {
-  max-width: 1078px;
+  max-width: 90vw;
   margin: 0 auto;
   margin-top: 2.5em;
 
@@ -13,46 +13,53 @@
   }
 
   .sneakerlist {
+    position: relative;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     &::-webkit-scrollbar {
       display: none;
       scrollbar-width: none;
     }
-    display: flex;
-    // overflow-x: auto;
-    &__sneak {
-      margin-right: 3em;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 3em;
 
+    &__sneak {
+      min-width: 200px;
+      cursor: pointer;
       h2 {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         margin-top: 0.25em;
         text-transform: uppercase;
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        letter-spacing: 1px;
+
         justify-content: space-between;
-        &:hover {
-          cursor: pointer;
-        }
       }
-      &__brand {
-        font-weight: 600;
-        color: #5a5a5a;
-        margin-top: 0.25em;
-        text-transform: capitalize;
-      }
+
       &__price {
         font-weight: 700;
-        color: #3e3e3e;
+
+        color: #575757;
         // text-align: right;
       }
 
       &__img {
+        display: flex;
+        justify-content: center;
         padding: 1em;
         background-color: #fff;
         img {
-          width: 200px;
-          height: 150px;
+          width: 150px;
         }
       }
     }
   }
+}
+.slider {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.014);
+  width: 70vw;
 }
