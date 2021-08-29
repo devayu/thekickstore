@@ -17,22 +17,6 @@ export const getServerSideProps = async (context) => {
   );
   const fetchSneakerData = await fetchSneakerApi.json();
 
-  const apiRes = await fetch(
-    'https://api.jsonbin.io/v3/b/6123d9502aa80036126e94d0',
-    {
-      method: 'GET',
-      headers: {
-        'X-Master-Key':
-          '$2b$10$y/Nb3KFy/5rQNMhbvh4FGuX144Sqn9RkLEHAJckYwq0pG8krn69Ni',
-      },
-    }
-  );
-  const apiResult = await apiRes.json();
-
-  // const sneaker = apiResult.record.filter((sneak) => {
-  //   return sneak.id === context.query.id;
-  // });
-
   return {
     props: {
       sneaker: fetchSneakerData,

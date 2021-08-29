@@ -21,10 +21,18 @@ export default function Home({ newArrivals, sneakers }) {
   );
 }
 export const getServerSideProps = async () => {
-  const fetchShoes = await fetch('http://localhost:3000/api/shoes', {
-    method: 'GET',
-  });
-  const fetchShoesData = await fetchShoes.json();
+  const API_KEY = process.env.STRIPE_KEY;
+  // const stripe = require('stripe')(API_KEY);
+  const fetchShoesApi = await fetch(
+    `https://api.stripe.com/v1/products?limit=100`,
+    {
+      method: 'GET',
+      headers: {
+        Authorization: 'Bearer ' + API_KEY,
+      },
+    }
+  );
+  const fetchShoesData = await fetchShoesApi.json();
 
   const apiRes = await fetch(
     'https://api.jsonbin.io/v3/b/6123d9502aa80036126e94d0',
