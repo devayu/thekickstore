@@ -6,10 +6,7 @@ const success = () => {
   const {
     query: { session_id },
   } = useRouter();
-  const { data, error } = useSWR(
-    () => `/api/checkout_sessions/${session_id}`,
-    fetcher
-  );
+
   return (
     <div>
       <h1>Success your order is received</h1>
