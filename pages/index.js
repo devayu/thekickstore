@@ -20,7 +20,7 @@ export default function Home({ newArrivals, sneakers }) {
     </div>
   );
 }
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const fetchShoes = await fetch('http://localhost:3000/api/shoes', {
     method: 'GET',
   });
