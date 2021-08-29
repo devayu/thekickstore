@@ -1,7 +1,7 @@
 import Stripe from 'stripe';
 import { buffer } from 'micro';
 
-const stripe = new Stripe(process.env.STRIPE_KEY);
+const stripe = new Stripe(`${process.env.STRIPE_KEY}`);
 export const config = {
   api: {
     bodyParser: false,
@@ -16,7 +16,7 @@ export default async function handler(req, res) {
       event = stripe.webhooks.constructEvent(
         rawBody.toString(),
         signature,
-        process.env.STRIPE_WEBHOOK_KEY.toString()
+        `${process.env.STRIPE_WEBHOOK_KEY}`
       );
     } catch (err) {
       console.log(`err message ${err.message}`);
