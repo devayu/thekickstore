@@ -15,7 +15,6 @@ const LoginModal = () => {
       auth
         .createUserWithEmailAndPassword(emailInput, passwordInput)
         .then((resp) => {
-          console.log(resp);
           const uid = resp.user?.uid.toString();
           db.collection('users').doc(uid).set({
             name: nameInput,

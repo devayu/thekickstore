@@ -3,10 +3,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase';
 const user = () => {
   const [user] = useAuthState(auth);
-  useEffect(() => {
-    console.log('user changed');
-  }, [user]);
-  console.log(user);
+  useEffect(() => {}, [user]);
+
   return (
     <div>
       {user?.uid}

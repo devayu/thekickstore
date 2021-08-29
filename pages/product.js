@@ -16,7 +16,7 @@ export const getServerSideProps = async (context) => {
     }
   );
   const fetchSneakerData = await fetchSneakerApi.json();
-  console.log(fetchSneakerData);
+
   const apiRes = await fetch(
     'https://api.jsonbin.io/v3/b/6123d9502aa80036126e94d0',
     {
@@ -44,7 +44,7 @@ const ProductPage = ({ sneaker }) => {
   const [currColor, setCurrColor] = useState('');
   const [isColor, setIsColor] = useState(false);
   const colorWays = sneaker.colorway?.split('/');
-  console.log(sneaker);
+
   const addProduct = (productInfo) => {
     const cart = localStorage.getItem('cartList');
     const cartList = JSON.parse(cart);

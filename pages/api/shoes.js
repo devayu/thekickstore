@@ -39,7 +39,6 @@ const createProduct = () => {
           .then((resp) => resp.json())
           .catch((e) => console.log(e));
       });
-      console.log(filtered.length);
     });
 };
 const createPrice = () => {
@@ -93,7 +92,7 @@ const delProducts = () => {
         });
       });
     })
-    .then((resp) => console.log(resp))
+    .then((resp) => resp.json())
     .catch((e) => console.log(e));
 };
 const getProducts = (res) => {

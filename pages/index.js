@@ -25,7 +25,7 @@ export const getServerSideProps = async () => {
     method: 'GET',
   });
   const fetchShoesData = await fetchShoes.json();
-  console.log(fetchShoesData);
+
   const apiRes = await fetch(
     'https://api.jsonbin.io/v3/b/6123d9502aa80036126e94d0',
     {
@@ -51,6 +51,6 @@ export const getServerSideProps = async () => {
       sneakers: fetchShoesData.data,
     },
 
-    revalidate: 20,
+    // revalidate: 20,
   };
 };
