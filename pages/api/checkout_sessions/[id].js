@@ -1,5 +1,5 @@
 import Stripe from 'stripe';
-const stripe = new Stripe(process.env.STRIPE_KEY);
+const stripe = new Stripe('sk_test_51JT9gOSDCB8aj7BrO73qjublOUPlyk3nYexELX63LP0WnVlX9VVzbLkcDDv8WkpxxzSrVIpD8xThNpF05S88dnIO007EjOXfol');
 
 export default async function handler(req, res) {
   const id = req.query.id;
