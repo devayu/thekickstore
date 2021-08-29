@@ -6,7 +6,14 @@ const success = () => {
   const {
     query: { session_id },
   } = useRouter();
-
+  const fetcher = (url) => axios.get(url).then((res) => res.data);
+  const { data, error } = useSWR(
+    () => `api/checkout_sessions/${session_id}`,
+    fetcher
+  );
+  useEffect(() => {
+    console.log('successfull');
+  }, [data]);
   return (
     <div>
       <h1>Success your order is received</h1>

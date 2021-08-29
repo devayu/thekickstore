@@ -19,11 +19,13 @@ export default async function handler(req, res) {
         process.env.STRIPE_WEBHOOK_KEY.toString()
       );
     } catch (err) {
+      console.log(`err message ${err.message}`);
       res.status(400).send(`Webhook error ${err.message}`);
+      return;
     }
 
     console.log('Success ', event.id);
-    if (event.type === 'checkout.payment.completed') {
+    if (event.type === 'checkout.session.completed') {
       console.log('Payment received');
     }
     res.json({ received: true });
