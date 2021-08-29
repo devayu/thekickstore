@@ -5,6 +5,7 @@ import Image from 'next/image';
 import getStripe from 'lib/get_stripe';
 import axios from 'axios';
 import { createCheckoutSession } from 'next-stripe/client';
+import { loadStripe } from 'stripe';
 const cart = () => {
   const [cartList, setCartList] = useState([]);
   let total = 0;
@@ -33,18 +34,17 @@ const cart = () => {
   };
   const createPayment = async () => {
     const session = await createCheckoutSession({
-      success_url: window.location.href + '/success',
-      cancel_url: window.location.href + '/cart',
-      line_items: [
-        cartList.map((item) => ({
-          price: item.priceID,
-          quantity: item.productQuantity,
-        })),
-      ],
+      success_url: window.location.origin + '/success',
+      cancel_url: window.location.origin + '/cart',
+      line_items: cartList.map((item) => ({
+        price: item.priceID,
+        quantity: item.productQuantity,
+      })),
+
       payment_method_types: ['card'],
       mode: 'payment',
     });
-    const stripe = loadStripe(process.env.STRIPE_PUBLIC_KEY);
+    const stripe = await loadStripe(process.env.STRIPE_PUBLIC_KEY);
     if (stripe) {
       stripe.redirectToCheckout({ sessionId: session.id });
     }
@@ -99,10 +99,7 @@ const cart = () => {
             <h3>
               Grand Total: <span>${total}</span>
             </h3>
-            <button
-              className={styles.checkout_btn}
-              onClick={redirectToCheckout}
-            >
+            <button className={styles.checkout_btn} onClick={createPayment}>
               Checkout
             </button>
           </div>
