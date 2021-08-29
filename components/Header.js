@@ -12,7 +12,7 @@ const Header = () => {
   useEffect(() => {
     const cart = localStorage.getItem('cartList');
     const cartArray = JSON.parse(cart);
-    setCartLength(cartArray.length);
+    setCartLength(cartArray?.length);
   }, []);
   return (
     <div className={styles.wrapper}>

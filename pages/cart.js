@@ -4,6 +4,7 @@ import { ImCross } from 'react-icons/im';
 import Image from 'next/image';
 import getStripe from 'lib/get_stripe';
 import axios from 'axios';
+import { createCheckoutSession } from 'next-stripe/client';
 const cart = () => {
   const [cartList, setCartList] = useState([]);
   let total = 0;
@@ -30,7 +31,24 @@ const cart = () => {
     const stripe = await getStripe();
     await stripe.redirectToCheckout({ sessionId: id });
   };
-
+  const createPayment = async () => {
+    const session = await createCheckoutSession({
+      success_url: window.location.href + '/success',
+      cancel_url: window.location.href + '/cart',
+      line_items: [
+        cartList.map((item) => ({
+          price: item.priceID,
+          quantity: item.productQuantity,
+        })),
+      ],
+      payment_method_types: ['card'],
+      mode: 'payment',
+    });
+    const stripe = loadStripe(process.env.STRIPE_PUBLIC_KEY);
+    if (stripe) {
+      stripe.redirectToCheckout({ sessionId: session.id });
+    }
+  };
   return (
     <div className={styles.wrapper}>
       <h1>Shopping Cart</h1>
