@@ -6,6 +6,8 @@ module.exports = {
   env: {
     stripe_public_key: process.env.STRIPE_PUBLIC_KEY,
   },
+
+  // future: { webpack5: false },
   eslint: {
     // Warning: Dangerously allow production builds to successfully complete even if
     // your project has ESLint errors.
