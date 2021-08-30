@@ -1,13 +1,17 @@
 import '@styles/globals.scss';
 import Layout from '@components/Layout';
-import { GlobalProvider } from '@context/GlobalState';
+import { Provider } from 'react-redux';
+import { Provider as AuthProvider } from 'next-auth/client';
+import { store } from '../store/store';
 function MyApp({ Component, pageProps }) {
   return (
-    <GlobalProvider>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </GlobalProvider>
+    <AuthProvider session={pageProps.session}>
+      <Provider store={store}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </Provider>
+    </AuthProvider>
   );
 }
 

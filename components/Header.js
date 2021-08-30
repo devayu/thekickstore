@@ -4,16 +4,22 @@ import { AiOutlineShopping, AiOutlineUser } from 'react-icons/ai';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
-
+import { useSelector } from 'react-redux';
+import { selectCart } from '../store/slices/cartSlice';
+import { signIn, signOut, useSession } from 'next-auth/client';
 const Header = () => {
+  const [session] = useSession();
   const router = useRouter();
+  const cart = useSelector(selectCart);
+  const [cartLength, setCartLength] = useState(0);
 
-  const [cartLength, setCartLength] = useState('');
+  // const [cartLength, setCartLength] = useState('');
   useEffect(() => {
-    const cart = localStorage.getItem('cartList');
-    const cartArray = JSON.parse(cart);
-    setCartLength(cartArray?.length);
-  }, []);
+    // const cart = localStorage.getItem('cartList');
+    // const cartArray = JSON.parse(cart);
+    setCartLength(cart?.length);
+  }, [cart]);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -24,7 +30,6 @@ const Header = () => {
           width={60}
           onClick={() => router.push('/')}
         />
-        {/* <a className={styles.logo}>THE KICKS STORE</a> */}
 
         <nav className={styles.navbar}>
           <ul>
@@ -57,14 +62,15 @@ const Header = () => {
               <p>{cartLength}</p>
             </div>
           </button>
-          <button
-            className={styles.btn}
-            onClick={() => {
-              router.push('/login');
-            }}
-          >
-            Log in <AiOutlineUser size='26'></AiOutlineUser>
-          </button>
+          {session?.user ? (
+            <button className={styles.btn} onClick={() => router.push('/user')}>
+              Hi, {session?.user.name}
+            </button>
+          ) : (
+            <button className={styles.btn} onClick={signIn}>
+              Log in <AiOutlineUser size='26'></AiOutlineUser>
+            </button>
+          )}
         </div>
       </div>
     </div>

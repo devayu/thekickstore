@@ -19,7 +19,7 @@ const Hero = () => {
           </Link>
         </div>
         <div className={styles.container__right}>
-          <Image src={heroImg} alt='' layout='fill' priority />
+          <Image src={heroImg} alt='' layout='responsive' priority />
         </div>
       </div>
     </div>

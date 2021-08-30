@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "the-kicks-store",
+  "private_key_id": "fb392f17d648697cac4c0cbd50f512c9a3d17e58",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCZaAj20CKkHRmH\nTmJh9Ez8MKH+Htl5i4ZniUCirAjn1s7SnkRV+mfweiDZID60Ak7jGoPnU1M5Zihx\nrh3F+t8VP3RcGlXtWj0nlh63rNXIYecqBbE8IfsgM3vOvSuzZkyROnJcgXg25kp8\nVRo9qhji/KJ1Sca1gpN2Yfs3HAbsloTQmHwlegeRQFzsTQeLryirolxPEFTNDRBf\neLm2WWCy3YsS2+tGsRmxUNn9LHCjN3hv3y4ohmAWaxvw6gG/1he/PFKqmmx53B9y\nm94IvPYVwYSgPYTK2i7/fhcqK4FYD0gj5ogwwizZ3MyvW9tlgQwA71rfaehjk4yE\nAmKkFm//AgMBAAECggEAJx3PA1hJLP26j7TeA0ovAzNHayvkmkiIiggGcjRZxPwS\nGsR+eknyjPAnRhYhxva7tM8DCU5G72DsOSiDsQLqNVnLytxwQqh65Ygy5vTsQj8s\nmZt/+OxVQ329ORcleIZCSdnUZWAiDiWkopV0rnqcA+0VY8DfKVNVVJ9hVkkQPu0x\nYsrTSVjMvhkhlHXiVMe5gAteGroHca1dOepAauGZ247nvmK1LOSh5oXNNxVrP+e0\nCpJJtfMmqsYHaSef4x3ay5mrchI4aPaR51o1pEeB5eHwITSs8CgvlNC8gbOUKcP7\nEhmt1Sy1n9smp+vqxMWYS16IRSiJuIyuN5k6nZS/wQKBgQDOz/Z1ZbcC24GEjJwq\nMc/rExVMxQc+yxx/inSi7ayLzmKDnUUHCQdmOD3s8JM8AIb84AI9LbDlp4ndzcwX\nC3tdVBosRKfnfjlyPIoScZ3kIq2C/8x1EE6VRH5jLH8hSO8VSZsNcyks5YokyUKw\nnay5EzJWpx51OIeL1Yo/ZzaQ4QKBgQC95GGH9t0i5988K24HqwB+kYGVlMmdnjrJ\n++OPppbp7GOSHALGxdLGb5Czd0WiTRIg3ieaYF88HZXSvxTkpF101NwYJ8Gc8H+o\nqZ7yaskA/DIT7lfQKAe0rVBaoIQC1g8yYGdFBKuxQC/vQTlH8BkfJnADGzjDIh/7\nh6ySeUm83wKBgQDAlJD44v2XcJXbux/UfswRJ5UHBtXnWDWyYliYO2AYU9gSnQlh\nMrwsKKUplSBVmFwa7/HFzF1UjT1pSLEKqIt47c7teAUuILEXul4MLLaNcOlH+jEG\ntWenwb87VH0Rnpvbo835qUonX5vTA4LRehITyVdvr3FCUKCPywpQXilGoQKBgAJp\nI9PWDnii+PKKmpr+UMNKlZqQiP63Q4fM6taoBsJxfdIdCOv9Fu/t+qhMm1W0JMbG\nCzqqfosE1SIXyuwcKhORoDmuR4b2hqhdfucU8/hPO1OFcxfxaiehC6Qa5ZIjpY2+\nK5F0vblCV1lyOofvRGJg2osvjUjs5fsLfeVeJNGBAoGBAIPZxd0XbT4nmK5bmgZA\nnljoSrtNdSjm7ommBQF3WGqew9tLUOrpio6qjp+WXQOxCTBKgwJPd0FW/XdQOg1g\n/oQx0svXGPnlAGvglX9nz4HyUdPXvmBp+F2GNJx+f5yGRH9Hl42IvTZ5bNO+I7IR\nLrogo8i3EFYaDvf534Jbx6Ef\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-d01a3@the-kicks-store.iam.gserviceaccount.com",
+  "client_id": "102935264921216572070",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-d01a3%40the-kicks-store.iam.gserviceaccount.com"
+}

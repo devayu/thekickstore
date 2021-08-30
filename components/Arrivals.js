@@ -26,7 +26,8 @@ const Arrivals = ({ newArrivals }) => {
                   <h2>
                     {sneaker.name}
                     <p className={styles.sneakerlist__sneak__price}>
-                      ${sneaker.metadata.price}.00
+                      &#8377;
+                      {Math.floor(sneaker.metadata.price).toLocaleString()}.00
                     </p>
                   </h2>
                 </div>

@@ -1,9 +1,11 @@
-const API_KEY = process.env.STRIPE_KEY;
+const API_KEY = process.env.STRIPE_SECRET_KEY;
 const stripe = require('stripe')(API_KEY);
 
 // const
 const createProduct = () => {
   let filtered;
+  let array1;
+  let array2;
   let dataArray;
   var options = {
     method: 'GET',
@@ -18,9 +20,11 @@ const createProduct = () => {
     .then((json) => {
       dataArray = [...json.record];
       filtered = dataArray.filter((item) => item.image.original && item.story);
+      array1 = filtered.slice(0, 20);
+      array2 = filtered.slice(20, 42);
     })
     .then(() => {
-      filtered.map((item) => {
+      array2.map((item) => {
         const product = stripe.products.create({
           name: item.name,
           description: item.story,
@@ -29,7 +33,7 @@ const createProduct = () => {
             brand: item.brand,
             gender: item.gender,
             sku: item.sku,
-            price: item.retailPrice,
+            price: +item.retailPrice * 73.41,
           },
         });
         fetch('https://api.stripe.com/v1/products', {
@@ -52,10 +56,14 @@ const createPrice = () => {
       return resp.json();
     })
     .then((js) => {
-      js.data.map((item) => {
+      const array1 = js.data.slice(0, 20);
+      const array2 = js.data.slice(20, 42);
+      console.log(array1.length);
+      console.log(array2.length);
+      array2.map((item) => {
         const price = stripe.prices.create({
-          unit_amount: item.metadata.price * 100,
-          currency: 'usd',
+          unit_amount: Math.floor(item.metadata.price * 100),
+          currency: 'inr',
           product: item.id,
         });
         fetch('https://api.stripe.com/v1/prices', {
@@ -134,6 +142,6 @@ export default function (req, res) {
   // delProducts();
   // createProduct();
   // createPrice();
-  getProducts(res);
+  // getProducts(res);
   // getPriceList(res);
 }

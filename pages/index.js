@@ -21,13 +21,12 @@ export default function Home({ newArrivals, sneakers }) {
   );
 }
 export const getServerSideProps = async () => {
-  const API_KEY = process.env.STRIPE_KEY;
   const fetchShoesApi = await fetch(
     `https://api.stripe.com/v1/products?limit=100`,
     {
       method: 'GET',
       headers: {
-        Authorization: 'Bearer ' + API_KEY,
+        Authorization: 'Bearer ' + process.env.STRIPE_SECRET_KEY,
       },
     }
   );

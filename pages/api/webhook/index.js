@@ -1,7 +1,62 @@
 import Stripe from 'stripe';
 import { buffer } from 'micro';
+import * as admin from 'firebase-admin';
+const serviceAccount = require('../../../firebase_permissions.json');
+const app = !admin.apps.length
+  ? admin.initializeApp({
+      credential: admin.credential.cert(serviceAccount),
+    })
+  : admin.app();
+const stripe = new Stripe(process.env.STRIPE_KEY);
+const endpointSecret = process.env.STRIPE_WEBHOOK_KEY;
+const fulfillOrder = async (session) => {
+  fetch(
+    `https://api.stripe.com/v1/checkout/sessions/${session.id}/line_items`,
+    {
+      method: 'GET',
+      headers: {
+        Authorization: 'Bearer ' + process.env.STRIPE_SECRET_KEY,
+      },
+    }
+  )
+    .then((res) => res.json())
+    .then((item) => {
+      console.log(item);
+      return app
+        .firestore()
+        .collection('users')
+        .doc(session.metadata.email)
+        .collection('orders')
+        .doc(session.id)
+        .set({
+          amount: session.amount_total / 100,
+          products: [item.data.map((prod) => prod.price.product)],
+          timestamp: admin.firestore.FieldValue.serverTimestamp(),
+        });
+    });
+};
+// export default async (req,res)=>{
+//   if(req.method ==='POST'){
+//     const requestBuffer = await buffer(req);
+//     const payload = requestBuffer.toString();
+//     const sig = req.headers['stripe-signature']
 
-const stripe = new Stripe(`${process.env.STRIPE_KEY}`);
+//     let event;
+//     try{
+//       event = stripe.webhooks.constructEvent(
+//         payload,
+//         sig,
+//         endpointSecret
+//       );
+//     }catch(err){
+//       console.log(err.message);
+//       return res.status(400).send(`Webhook error ${err.message}`)
+//     }
+//     if (event.type === 'checkout.session.completed') {
+//       const session = event.data.object;
+//     }
+// }
+// }
 export const config = {
   api: {
     bodyParser: false,
@@ -26,7 +81,7 @@ export default async function handler(req, res) {
 
     console.log('Success ', event.id);
     if (event.type === 'checkout.session.completed') {
-      console.log('Payment received');
+      fulfillOrder(event.data.object);
     }
     res.json({ received: true });
   } else {

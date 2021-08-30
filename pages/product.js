@@ -1,17 +1,18 @@
-import { GlobalContext } from '@context/GlobalState';
-import { withRouter } from 'next/router';
 import styles from '@styles/Product.module.scss';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Image from 'next/image';
 import { useState, useContext } from 'react';
-
+import { useDispatch } from 'react-redux';
+import { addToCart } from 'store/slices/cartSlice';
+import { BiRupee } from 'react-icons/bi';
 export const getServerSideProps = async (context) => {
   const fetchSneakerApi = await fetch(
     `https://api.stripe.com/v1/products/${context.query.id}`,
     {
       method: 'GET',
       headers: {
-        Authorization: 'Bearer ' + process.env.STRIPE_KEY,
+        Authorization: 'Bearer ' + process.env.STRIPE_SECRET_KEY,
       },
     }
   );
@@ -25,26 +26,26 @@ export const getServerSideProps = async (context) => {
 };
 
 const ProductPage = ({ sneaker }) => {
+  const dispatch = useDispatch();
   const addProduct = (productInfo) => {
+    dispatch(addToCart(productInfo));
     const cart = localStorage.getItem('cartList');
     const cartList = JSON.parse(cart);
     cartList.push(productInfo);
-    // const tempCart = [];
-    // if (cartList.length) {
-    //   cartList.map((item) => {
-    //     if (
-    //       item.productId === productInfo.productId &&
-    //       item.productColor === productInfo.productColor
-    //     )
-    //       item.productQuantity += 1;
-    //     else tempCart.push(productInfo);
-    //   });
-    //   cartList.push(...tempCart);
-    // } else {
-    //   cartList.push(productInfo);
-    // }
+
     localStorage.setItem('cartList', JSON.stringify(cartList));
   };
+  const notify = () =>
+    toast.success('Product Added', {
+      position: 'bottom-right',
+      autoClose: 1500,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'dark',
+    });
   return (
     <div className={styles.wrapper}>
       <div className={styles.wrapper__left}>
@@ -54,6 +55,7 @@ const ProductPage = ({ sneaker }) => {
         <button
           className={styles.addToCartBtn}
           onClick={() => {
+            notify();
             addProduct({
               productId: sneaker?.id,
               productQuantity: 1,
@@ -66,13 +68,17 @@ const ProductPage = ({ sneaker }) => {
         >
           Add to Cart
         </button>
+        <ToastContainer></ToastContainer>
       </div>
       <div className={styles.wrapper__right}>
         <div className={styles.wrapper__right__top}>
           <h5 className={styles.sneaker__brand}>{sneaker.metadata.brand}</h5>
           <h3 className={styles.sneaker__name}>{sneaker.name}</h3>
           <h4 className={styles.sneaker__retPrice}>
-            <span>${sneaker.metadata.price}.00</span>
+            <span>
+              &#8377;
+              {Math.floor(sneaker.metadata.price).toLocaleString()}.00
+            </span>
           </h4>
           <p className={styles.sneaker__story}>{sneaker?.description}</p>
         </div>

@@ -5,54 +5,37 @@ import Image from 'next/image';
 import getStripe from 'lib/get_stripe';
 import axios from 'axios';
 import { createCheckoutSession } from 'next-stripe/client';
-import { loadStripe } from 'stripe';
+import { loadStripe } from '@stripe/stripe-js';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectCart, selectTotal } from '../store/slices/cartSlice';
+import { removeFromCart } from '../store/slices/cartSlice';
+import { useSession } from 'next-auth/client';
 const cart = () => {
-  const [cartList, setCartList] = useState([]);
-  let total = 0;
-  useEffect(() => {
-    const cart = localStorage.getItem('cartList');
-    const cartArray = JSON.parse(cart);
-    setCartList(cartArray);
-  }, []);
-  useEffect(() => {
-    localStorage.setItem('cartList', JSON.stringify(cartList));
-  }, [cartList]);
-  const deleteItem = (id) => {
-    setCartList(cartList.filter((item) => item.productId !== id));
-  };
-  const redirectToCheckout = async () => {
-    const {
-      data: { id },
-    } = await axios.post('/api/checkout_sessions', {
-      items: cartList.map((item) => ({
-        price: item.priceID,
-        quantity: item.productQuantity,
-      })),
-    });
-    const stripe = await getStripe();
-    await stripe.redirectToCheckout({ sessionId: id });
-  };
-  const createPayment = async () => {
-    const session = await createCheckoutSession({
-      success_url: window.location.origin + '/success',
-      cancel_url: window.location.origin + '/cart',
-      line_items: cartList.map((item) => ({
-        price: item.priceID,
-        quantity: item.productQuantity,
-      })),
+  const [session] = useSession();
+  const stripePromise = loadStripe(process.env.stripe_public_key);
+  const dispatch = useDispatch();
+  const cart = useSelector(selectCart);
+  const totalPrice = useSelector(selectTotal);
 
-      payment_method_types: ['card'],
-      mode: 'payment',
+  const deleteItem = (id) => {
+    dispatch(removeFromCart({ id }));
+  };
+
+  const createCheckoutSession = async () => {
+    const stripe = await stripePromise;
+    console.log(cart);
+    const checkoutSession = await axios.post('/api/create-checkout-session', {
+      items: cart,
     });
-    const stripe = await loadStripe(process.env.STRIPE_PUBLIC_KEY);
-    if (stripe) {
-      stripe.redirectToCheckout({ sessionId: session.id });
-    }
+    const result = await stripe.redirectToCheckout({
+      sessionId: checkoutSession.data.id,
+    });
+    if (result.error) alert(result.error);
   };
   return (
     <div className={styles.wrapper}>
       <h1>Shopping Cart</h1>
-      {cartList.length === 0 ? (
+      {cart.length === 0 ? (
         <p>Looks like your cart is empty</p>
       ) : (
         <div className={styles.table}>
@@ -66,10 +49,7 @@ const cart = () => {
               </tr>
             </thead>
             <tbody>
-              {cartList?.map((item) => {
-                const totalPrice = +item?.productQuantity * +item?.productPrice;
-                total += totalPrice;
-
+              {cart?.map((item) => {
                 return (
                   <tr key={item.productId}>
                     <td>
@@ -80,9 +60,12 @@ const cart = () => {
                       ></Image>
                       <p>{item?.productName}</p>
                     </td>
-                    <td>${item?.productPrice}</td>
+                    <td>
+                      &#8377;
+                      {Math.floor(item.productPrice).toLocaleString()}.00
+                    </td>
                     <td>{item?.productQuantity}</td>
-                    <td>${totalPrice}</td>
+
                     <td>
                       <ImCross
                         color='red'
@@ -97,10 +80,18 @@ const cart = () => {
 
           <div className={styles.table__bottom}>
             <h3>
-              Grand Total: <span>${total}</span>
+              Grand Total:{' '}
+              <span>
+                &#8377;
+                {Math.floor(totalPrice).toLocaleString()}.00
+              </span>
             </h3>
-            <button className={styles.checkout_btn} onClick={createPayment}>
-              Checkout
+            <button
+              disabled={!session}
+              className={!session ? styles.disabled : styles.checkout_btn}
+              onClick={createCheckoutSession}
+            >
+              {!session ? 'Sign in to Checkout' : 'Checkout'}
             </button>
           </div>
         </div>

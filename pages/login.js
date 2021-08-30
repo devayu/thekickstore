@@ -5,6 +5,7 @@ import { auth, googleProvider, emailProvider } from '../firebase';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { signIn, signOut, useSession } from 'next-auth/client';
 const LoginModal = () => {
   const [user] = useAuthState(auth);
   const router = useRouter();
@@ -67,7 +68,7 @@ const LoginModal = () => {
           <p>or</p>
           <button
             className={styles.loginGoogleBtn}
-            onClick={handleGoogleLogin}
+            onClick={signIn}
             type='button'
           >
             <AiOutlineGoogle size='24' color='#fafafa' />

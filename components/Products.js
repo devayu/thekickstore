@@ -1,11 +1,6 @@
 import styles from '@styles/Products.module.scss';
 import Link from 'next/link';
 const Products = ({ sneakers }) => {
-  // const colorways = (colors) => {
-  //   const splitColors = colors.split('/');
-  //   return splitColors.length;
-  // };
-
   return (
     <div className={styles.container}>
       <h2 className={styles.heading}>ALL Products</h2>
@@ -33,7 +28,9 @@ const Products = ({ sneakers }) => {
                       <div>
                         {/* <p>{colorways(sneak.colorway)} Colors</p> */}
                         <h2 className={styles.products__sneak__price}>
-                          ${sneak.metadata.price}.00
+                          &#8377;
+                          {Math.floor(sneak.metadata.price).toLocaleString()}
+                          .00
                         </h2>
                       </div>
                     </h2>

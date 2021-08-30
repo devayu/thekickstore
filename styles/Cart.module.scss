@@ -50,3 +50,12 @@
     letter-spacing: 0.5px;
   }
 }
+.disabled {
+  cursor: not-allowed !important;
+  margin-left: 2em;
+  padding: 0.25em 0.5em;
+  background-color: #858585;
+  color: #06060b;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
