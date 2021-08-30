@@ -40,7 +40,7 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link href='/brands'>
+              <Link href='/success'>
                 <a>Brands</a>
               </Link>
             </li>

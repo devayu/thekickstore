@@ -1,6 +1,6 @@
 .wrapper {
   display: flex;
-  max-width: 90vw;
+  width: 90vw;
   margin: 2em auto;
   height: 100%;
 
@@ -14,6 +14,10 @@
   }
   &__right {
     margin-left: 2em;
+    @media screen and(max-width:850px) {
+      margin-left: 0;
+      padding: 1em;
+    }
 
     h4 {
       font-size: 1.15rem;
