@@ -40,7 +40,7 @@ const Products = ({ sneakers }) => {
             })}
           </div>
 
-          <Link href='/sneakers'>
+          <Link href='/products/allproducts'>
             <div className={styles.shopMore}>Shop More</div>
           </Link>
         </section>

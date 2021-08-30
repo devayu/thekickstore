@@ -23,13 +23,9 @@ const Header = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-        <Image
-          src='/logo1.png'
-          alt=''
-          height={60}
-          width={60}
-          onClick={() => router.push('/')}
-        />
+        <div className={styles.logo} onClick={() => router.push('/')}>
+          <Image src='/logo1.png' alt='' height={60} width={60} />
+        </div>
 
         <nav className={styles.navbar}>
           <ul>

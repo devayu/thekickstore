@@ -14,7 +14,7 @@ const Hero = () => {
             Get 20% off on select footwear with promo code{' '}
             <span>BACKTOSCHOOL</span>.
           </p> */}
-          <Link href='/products'>
+          <Link href='/products/allproducts'>
             <button>Shop Now</button>
           </Link>
         </div>
