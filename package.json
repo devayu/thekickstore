@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@chec/commerce.js": "^2.7.2",
     "@reduxjs/toolkit": "^1.6.1",
     "@stripe/react-stripe-js": "^1.4.1",
     "@stripe/stripe-js": "^1.17.1",
@@ -25,13 +24,10 @@
     "react-firebase-hooks": "^3.0.4",
     "react-icons": "^4.2.0",
     "react-redux": "^7.2.4",
-    "react-scroll-to-component": "^1.0.2",
     "react-toastify": "^8.0.1",
     "sass": "^1.35.1",
-    "sneaks-api": "^1.1.8",
     "stripe": "^8.171.0",
-    "swr": "^0.5.6",
-    "tailwindcss": "^2.2.7"
+    "swr": "^0.5.6"
   },
   "devDependencies": {
     "eslint": "7.29.0",
