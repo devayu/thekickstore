@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import styles from '@styles/Cart.module.scss';
 import { ImCross } from 'react-icons/im';
 import Image from 'next/image';
-import getStripe from 'lib/get_stripe';
+
 import axios from 'axios';
-import { createCheckoutSession } from 'next-stripe/client';
+
 import { loadStripe } from '@stripe/stripe-js';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectCart, selectTotal } from '../store/slices/cartSlice';
