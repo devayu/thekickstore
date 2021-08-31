@@ -15,8 +15,10 @@
   &__right {
     margin-left: 2em;
     @media screen and(max-width:850px) {
-      margin-left: 0;
+      margin: 0 auto;
       padding: 1em;
+      width: 95vw;
+      margin-bottom: 1em;
     }
 
     h4 {
@@ -58,6 +60,10 @@
   }
   &__name {
     font-size: 2.25rem;
+    @media screen and(max-width:850px) {
+      line-height: 1;
+      margin-top: 0.25em;
+    }
   }
   &__brand {
     text-transform: uppercase;

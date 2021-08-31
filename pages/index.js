@@ -6,10 +6,6 @@ import styles from '../styles/Home.module.scss';
 import FooterTop from '@components/FooterTop';
 import { useEffect } from 'react';
 export default function Home({ newArrivals, sneakers }) {
-  // useEffect(() => {
-  //   if (!localStorage.getItem('cartList'))
-  //     localStorage.setItem('cartList', JSON.stringify([]));
-  // }, []);
   return (
     <div className={styles.body}>
       <Hero></Hero>

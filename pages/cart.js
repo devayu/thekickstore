@@ -26,6 +26,7 @@ const cart = () => {
     console.log(cart);
     const checkoutSession = await axios.post('/api/create-checkout-session', {
       items: cart,
+      email: session?.user.email,
     });
     const result = await stripe.redirectToCheckout({
       sessionId: checkoutSession.data.id,
@@ -45,7 +46,7 @@ const cart = () => {
                 <th>Product Details</th>
                 <th>Price</th>
                 <th>Quantity</th>
-                <th>Total Price</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>

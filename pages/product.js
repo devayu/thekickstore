@@ -29,11 +29,6 @@ const ProductPage = ({ sneaker }) => {
   const dispatch = useDispatch();
   const addProduct = (productInfo) => {
     dispatch(addToCart(productInfo));
-    const cart = localStorage.getItem('cartList');
-    const cartList = JSON.parse(cart);
-    cartList.push(productInfo);
-
-    localStorage.setItem('cartList', JSON.stringify(cartList));
   };
   const notify = () =>
     toast.success('Product Added', {

@@ -26,6 +26,10 @@
       @media screen and(max-width:1400px) {
         font-size: 2rem;
       }
+      @media screen and(max-width:850px) {
+        line-height: 1;
+        // width: 100vw;
+      }
     }
     h2 {
       letter-spacing: 1px;
@@ -33,6 +37,11 @@
       margin-bottom: 1em;
       color: #858585;
       font-size: 1.5rem;
+      @media screen and(max-width:850px) {
+        line-height: 1;
+        margin-top: 0.5em;
+        // width: 100vw;
+      }
     }
     p {
       font-size: 1.5rem;

@@ -1,0 +1,48 @@
+.wrapper {
+  width: 90vw;
+  margin: 0 auto;
+  padding: 2em;
+  padding-top: 2em;
+  background-color: #fff;
+  height: 100vh;
+  margin-bottom: 2em;
+
+  .container {
+    &__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      button {
+        height: max-content;
+        display: flex;
+        align-items: center;
+        padding: 0.25em;
+        background-color: #06060b;
+        color: #fafafa;
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+        span {
+          margin-left: 0.25em;
+        }
+      }
+    }
+  }
+  .user_info {
+    margin: 1em 0;
+    margin-bottom: 2em;
+    display: flex;
+    align-items: center;
+    h3 {
+      margin-left: 0.5em;
+    }
+  }
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 100vw;
+  }
+  @media screen and(max-width:850px) {
+    // flex-direction: column;
+    width: 100vw;
+  }
+}

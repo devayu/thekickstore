@@ -14,8 +14,4 @@ const app = !firebase.apps.length
   : firebase.app();
 
 const db = app.firestore();
-const auth = app.auth();
-const googleProvider = new firebase.auth.GoogleAuthProvider();
-const emailProvider = new firebase.auth.EmailAuthProvider();
-const signOut = auth.signOut();
-export { auth, googleProvider, emailProvider, signOut, db };
+export default db;

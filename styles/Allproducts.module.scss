@@ -1,5 +1,5 @@
 .wrapper {
-  max-width: 90vw;
+  width: 90vw;
   margin: 0 auto;
   margin-top: 2em;
   text-transform: uppercase;
@@ -20,6 +20,9 @@
     @media screen and(max-width:450px) {
       grid-template-columns: 1fr;
     }
+  }
+  @media screen and(max-width:850px) {
+    width: 95vw;
   }
 }
 .products__sneak {

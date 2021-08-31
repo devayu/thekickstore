@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
   return (
     <div className={styles.wrapper}>
       <Head>
-        <title>The Kick Store</title>
+        <title>The Kicks Store</title>
       </Head>
       <Header></Header>
       {children}

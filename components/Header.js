@@ -13,10 +13,7 @@ const Header = () => {
   const cart = useSelector(selectCart);
   const [cartLength, setCartLength] = useState(0);
 
-  // const [cartLength, setCartLength] = useState('');
   useEffect(() => {
-    // const cart = localStorage.getItem('cartList');
-    // const cartArray = JSON.parse(cart);
     setCartLength(cart?.length);
   }, [cart]);
 

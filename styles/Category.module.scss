@@ -45,6 +45,9 @@
     object-fit: cover;
     transition: all ease-in-out 0.25s;
   }
+  @media screen and(max-width:850px) {
+    width: 95vw;
+  }
 }
 .brands {
   width: 90vw;
@@ -63,5 +66,8 @@
 
   &:hover {
     cursor: pointer;
+  }
+  @media screen and(max-width:850px) {
+    width: 95vw;
   }
 }
