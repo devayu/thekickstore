@@ -28,7 +28,6 @@ const fulfillOrder = async (session) => {
     .set({
       amount: session.amount_total / 100,
       paymentIntent: session.payment_intent,
-
       products,
       timestamp: admin.firestore.FieldValue.serverTimestamp(),
     })

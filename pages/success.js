@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import styles from '@styles/Success.module.scss';
 import { GiConfirmed } from 'react-icons/gi';

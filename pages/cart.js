@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styles from '@styles/Cart.module.scss';
 import { ImCross } from 'react-icons/im';
 import Image from 'next/image';
@@ -39,63 +39,68 @@ const cart = () => {
       {cart.length === 0 ? (
         <p>Looks like your cart is empty</p>
       ) : (
-        <div className={styles.table}>
-          <table>
-            <thead>
-              <tr>
-                <th>Product Details</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {cart?.map((item) => {
-                return (
-                  <tr key={item.productId}>
-                    <td>
-                      <Image
-                        src={item.productImg}
-                        width={75}
-                        height={75}
-                      ></Image>
-                      <p>{item?.productName}</p>
-                    </td>
-                    <td>
-                      &#8377;
-                      {Math.floor(item.productPrice).toLocaleString()}.00
-                    </td>
-                    <td>{item?.productQuantity}</td>
+        <>
+          <p className={styles.promo}>
+            Back to School sale, <span>20% off </span>on your order.
+          </p>
+          <div className={styles.table}>
+            <table>
+              <thead>
+                <tr>
+                  <th>Product Details</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {cart?.map((item) => {
+                  return (
+                    <tr key={item.productId}>
+                      <td>
+                        <Image
+                          src={item.productImg}
+                          width={75}
+                          height={75}
+                        ></Image>
+                        <p>{item?.productName}</p>
+                      </td>
+                      <td>
+                        &#8377;
+                        {Math.floor(item.productPrice).toLocaleString()}.00
+                      </td>
+                      <td>{item?.productQuantity}</td>
 
-                    <td>
-                      <ImCross
-                        color='red'
-                        onClick={() => deleteItem(item.productId)}
-                      />
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+                      <td>
+                        <ImCross
+                          color='red'
+                          onClick={() => deleteItem(item.productId)}
+                        />
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
 
-          <div className={styles.table__bottom}>
-            <h3>
-              Grand Total:{' '}
-              <span>
-                &#8377;
-                {Math.floor(totalPrice).toLocaleString()}.00
-              </span>
-            </h3>
-            <button
-              disabled={!session}
-              className={!session ? styles.disabled : styles.checkout_btn}
-              onClick={createCheckoutSession}
-            >
-              {!session ? 'Sign in to Checkout' : 'Checkout'}
-            </button>
+            <div className={styles.table__bottom}>
+              <h3>
+                Grand Total:{' '}
+                <span>
+                  &#8377;
+                  {Math.floor(totalPrice).toLocaleString()}.00
+                </span>
+              </h3>
+              <button
+                disabled={!session}
+                className={!session ? styles.disabled : styles.checkout_btn}
+                onClick={createCheckoutSession}
+              >
+                {!session ? 'Sign in to Checkout' : 'Checkout'}
+              </button>
+            </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );

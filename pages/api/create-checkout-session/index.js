@@ -10,6 +10,11 @@ export default async (req, res) => {
       price: item.priceID,
       quantity: item.productQuantity,
     })),
+    discounts: [
+      {
+        coupon: 'LtoThdV6',
+      },
+    ],
     metadata: {
       images: JSON.stringify(items.map((item) => item.productImg)),
       names: JSON.stringify(items.map((item) => item.productName)),

@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import { selectCart } from '../store/slices/cartSlice';
-import { signIn, signOut, useSession } from 'next-auth/client';
+import { signIn, useSession } from 'next-auth/client';
 const Header = () => {
   const [session] = useSession();
   const router = useRouter();

@@ -4,8 +4,8 @@
   padding: 2em;
   padding-top: 2em;
   background-color: #fff;
-  height: 100vh;
-  margin-bottom: 2em;
+
+  // margin-bottom: 2em;h
 
   .container {
     &__top {
@@ -40,6 +40,12 @@
     width: 50px;
     height: 50px;
     border-radius: 100vw;
+  }
+  .orders {
+    margin-bottom: 2em;
+  }
+  .warning {
+    height: 100vh;
   }
   @media screen and(max-width:850px) {
     // flex-direction: column;

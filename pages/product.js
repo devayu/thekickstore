@@ -1,11 +1,10 @@
 import styles from '@styles/Product.module.scss';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Image from 'next/image';
-import { useState, useContext } from 'react';
+
 import { useDispatch } from 'react-redux';
 import { addToCart } from 'store/slices/cartSlice';
-import { BiRupee } from 'react-icons/bi';
+
 export const getServerSideProps = async (context) => {
   const fetchSneakerApi = await fetch(
     `https://api.stripe.com/v1/products/${context.query.id}`,

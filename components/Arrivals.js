@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from '@styles/Arrivals.module.scss';
 const Arrivals = ({ newArrivals }) => {
