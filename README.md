@@ -3,7 +3,7 @@
 ## An e-commerce sneakers store.
 
  
-### Chekcout the [Tech Stack](./docs/tech_stack.md).
+### Checkout the [Tech Stack](./docs/tech_stack.md).
 
 
 ### Home
