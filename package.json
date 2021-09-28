@@ -27,6 +27,7 @@
     "react-icons": "^4.2.0",
     "react-redux": "^7.2.4",
     "react-toastify": "^8.0.1",
+    "redux-persist": "^6.0.0",
     "sass": "^1.35.1",
     "stripe": "^8.171.0",
     "swr": "^0.5.6"
