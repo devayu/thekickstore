@@ -4,6 +4,8 @@
 
 ### DATABASE - Firebase(https://firebase.google.com/)
 
+### STATE MANAGEMENT - Redux(https://redux-toolkit.js.org/)
+
 ### PAYMENT GATEWAY - Stripe(https://stripe.com/en-in)
 
 ### AUTHENTICATION - NextAuth(https://next-auth.js.org)
