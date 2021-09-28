@@ -6,6 +6,6 @@
 
 ### PAYMENT GATEWAY - Stripe(https://stripe.com/en-in)
 
-### AUTHENTICATION - NextAuth
+### AUTHENTICATION - NextAuth(https://next-auth.js.org)
 
 ### FRONTEND STYLING - SCSS/CSS
