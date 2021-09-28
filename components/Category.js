@@ -7,11 +7,11 @@ const Category = () => {
       <div className={styles.container}>
         <div className={styles.men}>
           <button>Shop NIKE</button>
-          <Image src='/shoe-full.jpg' alt='' layout='fill' priority />
+          <Image src='/cat-1.jpg' alt='' layout='fill' priority />
         </div>
         <div className={styles.women}>
           <button>Shop Adidas</button>
-          <Image src='/shoe-adidas.jpg' alt='' layout='fill' priority />
+          <Image src='/cat-2.jpg' alt='' layout='fill' priority />
         </div>
       </div>
       <div className={styles.brands}>

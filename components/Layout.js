@@ -7,6 +7,13 @@ const Layout = ({ children }) => {
   return (
     <div className={styles.wrapper}>
       <Head>
+        <meta property='og:title' content='The Kicks Store' />
+        <meta
+          property='og:image'
+          content='https://i.ibb.co/6tNsqpM/Logo-store.png'
+        />
+        <meta property='og:type' content='website' />
+        <meta property='og:url' content='https://thekickstore.vercel.app/' />
         <title>The Kicks Store</title>
       </Head>
       <Header></Header>

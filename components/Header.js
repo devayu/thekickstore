@@ -21,7 +21,7 @@ const Header = () => {
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.logo} onClick={() => router.push('/')}>
-          <Image src='/logo1.png' alt='' height={60} width={60} />
+          <Image src='/logo_store.png' alt='' height={60} width={60} />
         </div>
 
         <nav className={styles.navbar}>
