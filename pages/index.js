@@ -16,7 +16,7 @@ export default function Home({ newArrivals, sneakers }) {
     </div>
   );
 }
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const fetchShoesApi = await fetch(
     `https://api.stripe.com/v1/products?limit=100`,
     {
