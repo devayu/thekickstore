@@ -34,5 +34,5 @@ yarn-error.log*
 .vercel
 
 # firebase files
-firebase_permission.json
+firebase_permissions.json
 sneaker_database.json
