@@ -8,4 +8,4 @@
 
 ### AUTHENTICATION - NextAuth(https://next-auth.js.org)
 
-### FRONTEND STYLING - SCSS/CSS
+### FRONTEND STYLING - SCSS/CSS(https://sass-lang.com)
