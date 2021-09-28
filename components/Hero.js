@@ -10,7 +10,7 @@ const Hero = () => {
           <h1>NEW SEASON, NO LIMITS.</h1>
           <h2>Give your feet the superpower they need.</h2>
 
-          <Link href='/products/allproducts'>
+          <Link href='/products/all'>
             <button>Shop Now</button>
           </Link>
         </div>

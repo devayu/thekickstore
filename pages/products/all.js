@@ -41,7 +41,7 @@ const allproducts = ({ sneakers }) => {
 };
 
 export default allproducts;
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const fetchShoesApi = await fetch(
     `https://api.stripe.com/v1/products?limit=100`,
     {
@@ -52,17 +52,6 @@ export const getServerSideProps = async () => {
     }
   );
   const fetchShoesData = await fetchShoesApi.json();
-
-  const apiRes = await fetch(
-    'https://api.jsonbin.io/v3/b/6123d9502aa80036126e94d0',
-    {
-      method: 'GET',
-      headers: {
-        'X-Master-Key':
-          '$2b$10$y/Nb3KFy/5rQNMhbvh4FGuX144Sqn9RkLEHAJckYwq0pG8krn69Ni',
-      },
-    }
-  );
 
   return {
     props: {

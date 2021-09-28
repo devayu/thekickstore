@@ -7,7 +7,7 @@ import { addToCart } from 'store/slices/cartSlice';
 
 export const getServerSideProps = async (context) => {
   const fetchSneakerApi = await fetch(
-    `https://api.stripe.com/v1/products/${context.query.id}`,
+    `https://api.stripe.com/v1/products/${context.query?.id}`,
     {
       method: 'GET',
       headers: {
