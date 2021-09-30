@@ -1,6 +1,6 @@
 # THE KICKS STORE - https://thekickstore.vercel.app
 
-## An e-commerce sneakers store.
+## An e-commerce sneakers store built with Next.js (A react.js framework).
 
  
 ### Checkout the [Tech Stack](./docs/tech_stack.md).
